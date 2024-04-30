@@ -45,7 +45,7 @@ var db = [
         descricao: "Treino de musculação.",
         dataHora: "02/09/2024 18:00",
         duracao: "01:30",
-        concluido: false
+        concluido: true
     },
     {
         id: 4,
@@ -61,7 +61,7 @@ var db = [
         descricao: "Participar do webinar sobre marketing digital.",
         dataHora: "04/09/2024 11:00",
         duracao: "02:00",
-        concluido: false
+        concluido: true
     },
     {
         id: 6,
@@ -77,7 +77,7 @@ var db = [
         descricao: "Limpar e organizar o escritório em casa.",
         dataHora: "06/09/2024 13:00",
         duracao: "01:30",
-        concluido: false
+        concluido: true
     },
     {
         id: 8,
@@ -93,7 +93,7 @@ var db = [
         descricao: "Enviar relatório mensal para o chefe.",
         dataHora: "08/09/2024 11:30",
         duracao: "01:15",
-        concluido: false
+        concluido: true
     },
     {
         id: 10,
@@ -109,7 +109,7 @@ var db = [
         descricao: "Ler o novo livro de ficção.",
         dataHora: "10/09/2024 19:00",
         duracao: "02:00",
-        concluido: false
+        concluido: true
     },
     {
         id: 12,
@@ -125,21 +125,21 @@ var db = [
         descricao: "Consulta médica e exames de saúde.",
         dataHora: "12/09/2024 14:30",
         duracao: "03:00",
-        concluido: false
+        concluido: true
     },
     {
         id: 14,
         titulo: "Assistir ao jogo de futebol",
         descricao: "Assistir ao jogo do time favorito no estádio.",
-        dataHora: "13/09/2024 16:30",
+        dataHora: "05/02/2024 16:30",
         duracao: "02:30",
-        concluido: false
+        concluido: true
     },
     {
         id: 15,
         titulo: "Consertar a torneira",
         descricao: "Chamar o encanador para consertar a torneira da cozinha.",
-        dataHora: "14/09/2024 10:00",
+        dataHora: "05/02/2024 10:00",
         duracao: "01:00",
         concluido: false
     },
@@ -149,7 +149,7 @@ var db = [
         descricao: "Maratona da nova série na Netflix.",
         dataHora: "15/09/2024 20:00",
         duracao: "03:00",
-        concluido: false
+        concluido: true
     },
     {
         id: 17,
@@ -259,6 +259,11 @@ function EditarTarefa() {
 function ExibirTarefas() {
     var text = '';
 
+    // Ordena a lista de tarefas por ordem de conclusão
+    lista.sort(function (a) {
+        return a.concluido ? 1 : -1;
+    });
+
     for (i = 0; i < lista.length; i++) {
         text += '<tr>';
         text += '<td>' + lista[i].titulo + '</td>';
@@ -341,9 +346,9 @@ function VisualizarPorDia() {
         text += '<p class="card-text">' + lista[i].dataHora + '</p>';
         text += '<p class="card-text">';
         if (lista[i].concluido == true) {
-            text += '<i class="bi bi-check2-all"></i>';
+            text += '<i class="bi bi-check-lg"></i>';
         } else {
-            text += '<i class="bi bi-check2"></i>';
+            text += '<i class="bi bi-x-lg"></i>';
         }
         text += '</p>';
         text += '</div>';
