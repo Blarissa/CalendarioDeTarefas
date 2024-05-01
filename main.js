@@ -11,6 +11,7 @@ var inputDuracao = document.querySelector("#duracao");
 var inputConcluido = document.querySelector("#concluido");
 
 var idEditar = null;
+var index = null;
 var lista = [];
 
 // Array imitando um banco de dados real
@@ -186,18 +187,26 @@ function MostrarForm() {
 function MostrarFormEditar(id) {
     idEditar = id;
 
+    index = db.findIndex(function (tarefa) {
+        return tarefa.id == id;
+    });
+
     MostrarForm();
 
-    inputTitulo.value = db[id].titulo;
-    inputDescricao.value = db[id].descricao;
-    inputDataHora.value = db[id].dataHora;
-    inputDuracao.value = db[id].duracao;
-    inputConcluido.checked = db[id].concluido;
+    inputTitulo.value = db[index].titulo;
+    inputDescricao.value = db[index].descricao;
+    inputDataHora.value = db[index].dataHora;
+    inputDuracao.value = db[index].duracao;
+    inputConcluido.checked = db[index].concluido;
 }
 
 // Função para remover tarefa
 function RemoverTarefa(id) {
-    db.splice(id, 1);
+    index = db.findIndex(function (tarefa) {
+        return tarefa.id == id;
+    });
+
+    db.splice(index, 1);
     VisualizarTodas();
 }
 
@@ -245,7 +254,7 @@ function AdicionarTarefa() {
 
 // Função para editar tarefa
 function EditarTarefa() {
-    db[idEditar] = {
+    db[index] = {
         id: idEditar,
         titulo: inputTitulo.value,
         descricao: inputDescricao.value,
