@@ -1,9 +1,10 @@
-#Calendário de tarefas
+# Calendário de tarefas
 ## 1. [Descrição](#Descrição)
 Um SPA de calendário de tarefas, onde é possível adicionar, remover, marcar como concluída, pesquisar e visualizar tarefas do dia e do mês.
 
 ## 2. [Funcionalidades](#Funcionalidades)
 - Adicionar tarefas
+- Editar tarefas
 - Remover tarefas
 - Marcar tarefas como concluídas
 - Pesquisar tarefas
